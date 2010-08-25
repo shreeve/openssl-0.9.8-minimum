@@ -1,0 +1,23 @@
+
+Enabling HTTPS/SSL for EventMachine on Ruby 1.9.2 for Windows
+=============================================================
+
+1. Install Ruby 1.9.2p0 from rubyinstaller.org and choose to add Ruby to your path
+2. Install DevKit 4.5.0 from rubyinstaller.org and extract it
+3. DevKit enable your Rubies:
+
+   cd \YOUR\PATH\TO\DevKit
+   ruby dk.rb init
+   ruby dk.rb review
+   ruby dk.rb install
+
+4. Download the openssl-0.9.8-minimum github repo:
+
+   git clone git://github.com/shreeve/openssl-0.9.8-minimum.git
+   
+5. Download eventmachine from github and install (NOTE: use forward slashes in paths below):
+
+   git clone git://github.com/eventmachine/eventmachine.git
+   cd eventmachine
+   gem build eventmachine.gemspec
+   gem install eventmachine-0.12.11.gem --platform=ruby -- --with-ssl-dir=/openssl-0.9.8-minimum
